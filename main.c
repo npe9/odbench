@@ -58,6 +58,7 @@ main(int argc, char **argv)
            We distinguish them by their indices. */
         {"noise",  required_argument, 0, 'n'},
         {"bufsize",  required_argument, 0, 'z'},
+        {"work",  required_argument, 0, 'w'},
         {"times", required_argument, 0, 't'},
         {0, 0, 0, 0}
       };
@@ -80,6 +81,10 @@ main(int argc, char **argv)
       if (optarg)
         printf (" with arg %s", optarg);
       printf ("\n");
+      break;
+
+    case 'w':
+      nwork = atoi(optarg);
       break;
 
     case 'n':

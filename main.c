@@ -134,7 +134,7 @@ main(int argc, char **argv)
     }
       finish = rdtscp(&cpuid);
       if(oldcpuid == cpuid)
-        printf("%d %d comm %d %d %llu\n", rank, i, size, bufsize, finish-start);
+        printf("%d %d comm %d %d %d %llu\n", rank, i, size, bufsize, noise, finish-start);
       else
         if(debug)
           fprintf(stderr, "warning: rank %d iteration %d migrated cpus from %d to %d\n", rank, i, oldcpuid, cpuid);

@@ -65,7 +65,7 @@ main(int argc, char **argv)
     /* getopt_long stores the option index here. */
     int option_index = 0;
 
-    c = getopt_long (argc, argv, "abc:d:f:n:",
+    c = getopt_long (argc, argv, "n:z:",
                      long_options, &option_index);
 
     /* Detect the end of the options. */
@@ -123,7 +123,7 @@ main(int argc, char **argv)
     localsleep(nwork);
     finish = rdtscp(&cpuid);
     if(oldcpuid == cpuid)
-      printf("%d %d work %d %d %llu\n", rank, i, size, bufsize, finish-start);
+      printf("%d %d work %d %d %d %llu\n", rank, i, size, bufsize, noise, finish-start);
 
     start = rdtscp(&cpuid);
     if(rank < size/2) {

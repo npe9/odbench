@@ -137,8 +137,8 @@ main(int argc, char **argv)
         printf("rank %d starting recv from %d\n", rank, rank - size/2);
       MPI_Recv(buf, bufsize, MPI_FLOAT, rank - size/2, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
     }
-      MPI_Barrier(MPI_COMM_WORLD);
       finish = rdtscp(&cpuid);
+      MPI_Barrier(MPI_COMM_WORLD);
       if(oldcpuid == cpuid)
         printf("%d %d comm %d %d %d %llu\n", rank, i, size, bufsize, noise, finish-start);
       else
